@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Farhan Ansari – Curriculum Vitae</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:       #1a1a2e;
+      --accent:    #c8963e;
+      --accent-lt: #f3e9d2;
+      --muted:     #5a5a72;
+      --rule:      #d9d4c7;
+      --bg:        #faf8f4;
+      --card:      #ffffff;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+      padding: 2.5rem 1rem;
+    }
+
+    /* ── CONTAINER ── */
+    .cv-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      background: var(--card);
+      border-radius: 4px;
+      box-shadow: 0 8px 48px rgba(26,26,46,.10);
+      overflow: hidden;
+    }
+
+    /* ── HEADER BAND ── */
+    .cv-header {
+      background: var(--ink);
+      color: #fff;
+      padding: 3rem 3rem 2.4rem;
+      position: relative;
+    }
+    .cv-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 3rem; right: 3rem;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px 2px 0 0;
+    }
+    .cv-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: .03em;
+      margin-bottom: .25rem;
+    }
+    .cv-label {
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.6rem;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: .5rem .8rem;
+      font-size: .82rem;
+      color: rgba(255,255,255,.75);
+    }
+    .contact-item { display: flex; align-items: center; gap: .45rem; }
+    .contact-item svg { flex-shrink: 0; opacity: .7; }
+
+    /* ── BODY LAYOUT ── */
+    .cv-body {
+      padding: 2.6rem 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    /* ── SECTION ── */
+    .section { padding: 1.6rem 0; }
+    .section:last-child { padding-bottom: 0; }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.18rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+
+    p { font-size: .9rem; color: #3a3a52; }
+
+    /* ── EDUCATION ── */
+    .edu-block { display: flex; flex-direction: column; gap: .15rem; }
+    .edu-degree {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .edu-school { font-size: .85rem; color: var(--muted); font-weight: 400; }
+
+    /* ── LISTS ── */
+    ul { list-style: none; display: flex; flex-direction: column; gap: .45rem; }
+    ul li {
+      font-size: .88rem;
+      color: #3a3a52;
+      padding-left: 1.4rem;
+      position: relative;
+    }
+    ul li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: .55em;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* ── SKILLS CHIPS ── */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+    .skill-chip {
+      background: var(--accent-lt);
+      color: var(--ink);
+      border: 1px solid rgba(200,150,62,.25);
+      border-radius: 2px;
+      font-size: .78rem;
+      font-weight: 500;
+      padding: .3rem .75rem;
+      letter-spacing: .04em;
+    }
+
+    /* ── STRENGTHS CHIPS ── */
+    .strength-chip {
+      background: var(--ink);
+      color: #fff;
+      border-radius: 2px;
+      font-size: .78rem;
+      font-weight: 500;
+      padding: .3rem .75rem;
+      letter-spacing: .04em;
+    }
+
+    /* ── DECLARATION ── */
+    .declaration p { font-style: italic; color: var(--muted); font-size: .85rem; }
+
+    /* ── PERSONAL DETAILS TABLE ── */
+    .personal-table { display: grid; grid-template-columns: 1fr 1fr; gap: .55rem 2rem; }
+    .pd-row { font-size: .87rem; color: #3a3a52; }
+    .pd-label { font-weight: 500; color: var(--ink); margin-right: .3rem; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      body { padding: 0; }
+      .cv-wrap { border-radius: 0; box-shadow: none; }
+      .cv-header { padding: 2rem 1.4rem 2rem; }
+      .cv-header::after { left: 1.4rem; right: 1.4rem; }
+      .cv-body { padding: 1.6rem 1.4rem; }
+      .personal-table { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .cv-header h1 { font-size: 1.7rem; }
+      ul li { font-size: .84rem; }
+      .skills-grid, .section-title { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cv-wrap">
+
+  <!-- HEADER -->
+  <header class="cv-header">
+    <p class="cv-label"style="display: flex; justify-content: center; align-items: center;">Curriculum Vitae</p>
+    <h1>Farhan Ansari</h1>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.01 1.17 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+        +91 80906 28203
+      </div>
+      <div class="contact-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        farhanansari0535@gmail.com
+      </div>
+      <div class="contact-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Raebareli, Uttar Pradesh
+      </div>
+    </div>
+  </header>
+
+  <!-- BODY -->
+  <main class="cv-body">
+
+    <!-- OBJECTIVE -->
+    <section class="section">
+      <h2 class="section-title">Objective</h2>
+      <p>Motivated and detail-oriented B.Sc. student with knowledge of web development, Tally, and Canva. Seeking an opportunity to utilize my skills, gain practical experience, and contribute to organizational growth.</p>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section">
+      <h2 class="section-title">Education</h2>
+      <div class="edu-block">
+        <span class="edu-degree">Bachelor of Science (B.Sc. - Biology)</span>
+        <span class="edu-school">University of Lucknow</span>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <span class="skill-chip">Web Development (HTML, CSS, Basic JavaScript)</span>
+        <span class="skill-chip">Tally (Basic Accounting Knowledge)</span>
+        <span class="skill-chip">Canva (Graphic Designing)</span>
+        <span class="skill-chip">MS Office (Word, PowerPoint)</span>
+        <span class="skill-chip">Communication Skills</span>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="section">
+      <h2 class="section-title">Certifications</h2>
+      <ul>
+        <li>Web Development Course</li>
+        <li>Tally Course</li>
+      </ul>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section">
+      <h2 class="section-title">Projects</h2>
+      <ul>
+        <li>Created websites using HTML &amp; CSS</li>
+        <li>Designed social media posts and graphics using Canva</li>
+      </ul>
+    </section>
+
+    <!-- STRENGTHS -->
+    <section class="section">
+      <h2 class="section-title">Strengths</h2>
+      <div class="skills-grid">
+        <span class="strength-chip">Quick Learner</span>
+        <span class="strength-chip">Creative Thinking</span>
+        <span class="strength-chip">Team Player</span>
+        <span class="strength-chip">Hardworking and Dedicated</span>
+      </div>
+    </section>
+
+    <!-- PERSONAL DETAILS -->
+    <section class="section">
+      <h2 class="section-title">Personal Details</h2>
+      <div class="personal-table">
+        <div class="pd-row"><span class="pd-label">Date of Birth:</span>25th Oct 2006</div>
+        <div class="pd-row"><span class="pd-label">Languages Known:</span>Hindi, English</div>
+        <div class="pd-row"><span class="pd-label">Hobbies:</span>Designing, Learning new skills, Internet surfing</div>
+      </div>
+    </section>
+
+    <!-- DECLARATION -->
+    <section class="section declaration">
+      <h2 class="section-title">Declaration</h2>
+      <p>I hereby declare that the above information is true to the best of my knowledge and belief.</p>
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>
